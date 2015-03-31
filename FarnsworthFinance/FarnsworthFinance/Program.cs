@@ -10,10 +10,24 @@ namespace FarnsworthFinance {
 		static void Main(string[] args) {
 			SampleData.Create();
 
-			EmployeeCosts employeeCosts = new EmployeeCosts();
-			employeeCosts.PrintInGBP();
 
-			Console.ReadLine();
+			ConsoleKeyInfo consoleKeyInfo;
+
+			do {
+				Menu.display();
+				consoleKeyInfo = Console.ReadKey(false); 
+				switch (consoleKeyInfo.KeyChar.ToString()) {
+					case "1":
+						Console.Clear();
+						EmployeeCosts employeeCosts = new EmployeeCosts();
+						employeeCosts.PrintInGBP();
+						break;
+					case "2":
+						
+						break;
+					// etc..
+				}
+			} while (consoleKeyInfo.Key != ConsoleKey.Escape);
 		}
 	}
 }

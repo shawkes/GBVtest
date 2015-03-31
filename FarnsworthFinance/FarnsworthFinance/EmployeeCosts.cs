@@ -19,6 +19,7 @@ namespace FarnsworthFinance {
 			while (reader.Read()) {
 				Console.WriteLine("Name: {0} \tGBP: {1:C}", reader["name"], reader["annual_amount_in_GBP"]);
 			}
+			Console.ReadLine();
 		}
 	}
 }
