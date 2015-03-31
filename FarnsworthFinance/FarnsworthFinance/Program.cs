@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 namespace FarnsworthFinance {
 	class Program {
 		static void Main(string[] args) {
+			SampleData.Create();
+			Console.WriteLine("Hello world");
+			Console.ReadLine();
 		}
 	}
 }
