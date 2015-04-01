@@ -6,21 +6,32 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 
 namespace FarnsworthFinance {
-	class EmployeeCosts {
-		public void PrintInGBP(){
+	class Staff {
+		private List<Employee> _employees = new List<Employee>();
+
+		public List<Employee> List { 
+			get {
+				return _employees;
+			} 
+		}
+
+		public Staff() {
+
 			DataConnection dataConnection = new DataConnection();
 			SQLiteConnection dbConnection = new SQLiteConnection(dataConnection.datalocation());
 			dbConnection.Open();
 
 
-			string sql = "SELECT Employees.name, Salaries.annual_amount / Currencies.conversion_factor AS annual_amount_in_GBP FROM Employees JOIN Salaries ON Employees.id = Salaries.employee_id JOIN Currencies ON Salaries.currency = Currencies.id ";
+			string sql = "SELECT Employees.id FROM Employees ";
 			SQLiteCommand command = new SQLiteCommand(sql, dbConnection);
+			command.CommandType = System.Data.CommandType.Text;
+
 			SQLiteDataReader reader = command.ExecuteReader();
 			while (reader.Read()) {
-				Console.WriteLine("Name: {0} \tGBP: {1:C}", reader["name"], reader["annual_amount_in_GBP"]);
+				Employee employee = new Employee((int)reader["id"]);
+				this._employees.Add(employee);
 			}
 			dbConnection.Close();
-			Console.ReadLine();
 		}
 	}
 }

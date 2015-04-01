@@ -60,7 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataConnection.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="EmployeeCosts.cs" />
+    <Compile Include="EmployeeList.cs" />
+    <Compile Include="LocalCurrency.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
