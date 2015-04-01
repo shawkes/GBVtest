@@ -1,22 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SQLite;
 using System.IO;
 
 namespace FarnsworthFinance {
 	class DataConnection {
-		private string _databaseFileName = "FarnsworthFinance.mdf";
+		private const string DATABASE_FILE_NAME = "FarnsworthFinance.mdf";
 		private string _myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
 		public string datalocation() {
-			return string.Concat("Data Source=" , _myDocumentsPath , "\\" ,_databaseFileName ,";");
+			return string.Concat("Data Source=", _myDocumentsPath, "\\", DATABASE_FILE_NAME, ";");
 		}
 
 		public Boolean dataExists() {
-			return File.Exists(string.Concat( _myDocumentsPath, "\\", _databaseFileName));
+			return File.Exists(string.Concat(_myDocumentsPath, "\\", DATABASE_FILE_NAME));
 		}
 	}
 }

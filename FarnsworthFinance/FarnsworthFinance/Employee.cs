@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
 
 namespace FarnsworthFinance {
@@ -27,8 +23,8 @@ namespace FarnsworthFinance {
 			get { return _localCurrency.Unit; }
 		}
 		public double SalaryinGBP {
-			get { 
-				return _localCurrency.ConvertToGBP(_salary); 
+			get {
+				return _localCurrency.ConvertToGBP(_salary);
 			}
 		}
 		public string RoleTitle {
@@ -62,6 +58,6 @@ namespace FarnsworthFinance {
 			dbConnection.Close();
 		}
 
-		
+
 	}
 }

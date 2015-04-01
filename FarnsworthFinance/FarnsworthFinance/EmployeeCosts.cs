@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
 
 namespace FarnsworthFinance {
 	class EmployeeCosts {
-		public void PrintInGBP(){
+		public void PrintInGBP() {
 			DataConnection dataConnection = new DataConnection();
 			SQLiteConnection dbConnection = new SQLiteConnection(dataConnection.datalocation());
 			dbConnection.Open();
@@ -20,7 +16,6 @@ namespace FarnsworthFinance {
 				Console.WriteLine("Name: {0} \tGBP: {1:C}", reader["name"], reader["annual_amount_in_GBP"]);
 			}
 			dbConnection.Close();
-			Console.ReadLine();
 		}
 	}
 }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
 
 namespace FarnsworthFinance {
@@ -36,7 +32,7 @@ namespace FarnsworthFinance {
 		}
 
 		private static void AddEmployee(SQLiteConnection dbConnection, int id, string name, int role_id) {
-			string sql = string.Concat( "INSERT INTO Employees (id, name, role_id) VALUES ( @id, @name, @role_id );");
+			string sql = string.Concat("INSERT INTO Employees (id, name, role_id) VALUES ( @id, @name, @role_id );");
 			SQLiteCommand command = new SQLiteCommand(sql, dbConnection);
 			command.CommandType = System.Data.CommandType.Text;
 
@@ -108,7 +104,7 @@ namespace FarnsworthFinance {
 			string sql = "CREATE TABLE Currencies (id INTEGER, unit VARCHAR(255), conversion_factor DECIMAL)";
 			SQLiteCommand command = new SQLiteCommand(sql, dbConnection);
 			command.ExecuteNonQuery();
-			
+
 			AddECurrency(dbConnection, 1, "GBP", 1);
 			AddECurrency(dbConnection, 2, "USD", 1.54);
 			AddECurrency(dbConnection, 3, "Rocks", 10);
@@ -118,7 +114,7 @@ namespace FarnsworthFinance {
 			dbConnection.Close();
 		}
 
-		private static void AddECurrency(SQLiteConnection dbConnection, int id, string unit, double conversion_factor ) {
+		private static void AddECurrency(SQLiteConnection dbConnection, int id, string unit, double conversion_factor) {
 			string sql = string.Concat("INSERT INTO Currencies (id, unit, conversion_factor) VALUES ( @id, @unit, @conversion_factor);");
 			SQLiteCommand command = new SQLiteCommand(sql, dbConnection);
 			command.CommandType = System.Data.CommandType.Text;

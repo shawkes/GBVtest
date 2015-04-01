@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
 
 namespace FarnsworthFinance {
 	class Staff {
 		private List<Employee> _employees = new List<Employee>();
 
-		public List<Employee> List { 
+		public List<Employee> List {
 			get {
 				return _employees;
-			} 
+			}
 		}
 
 		public Staff() {
