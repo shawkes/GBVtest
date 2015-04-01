@@ -22,7 +22,7 @@ namespace FarnsworthFinance {
 			SQLiteConnection dbConnection = new SQLiteConnection(dataConnection.datalocation());
 			dbConnection.Open();
 
-			string sql = "CREATE TABLE Employees (id INT, name VARCHAR(255), role_id INT)";
+			string sql = "CREATE TABLE Employees (id INTEGER, name VARCHAR(255), role_id INTEGER)";
 			SQLiteCommand command = new SQLiteCommand(sql, dbConnection);
 			command.ExecuteNonQuery();
 
@@ -51,7 +51,7 @@ namespace FarnsworthFinance {
 			SQLiteConnection dbConnection = new SQLiteConnection(dataConnection.datalocation());
 			dbConnection.Open();
 
-			string sql = "CREATE TABLE Roles (id INT, name VARCHAR(255))";
+			string sql = "CREATE TABLE Roles (id INTEGER, name VARCHAR(255))";
 			SQLiteCommand command = new SQLiteCommand(sql, dbConnection);
 			command.ExecuteNonQuery();
 
@@ -76,7 +76,7 @@ namespace FarnsworthFinance {
 			SQLiteConnection dbConnection = new SQLiteConnection(dataConnection.datalocation());
 			dbConnection.Open();
 
-			string sql = "CREATE TABLE Salaries (id INT, employee_id INT, currency INT, annual_amount INT)";
+			string sql = "CREATE TABLE Salaries (id INTEGER, employee_id INTEGER, currency INTEGER, annual_amount INTEGER)";
 			SQLiteCommand command = new SQLiteCommand(sql, dbConnection);
 			command.ExecuteNonQuery();
 
@@ -105,7 +105,7 @@ namespace FarnsworthFinance {
 			SQLiteConnection dbConnection = new SQLiteConnection(dataConnection.datalocation());
 			dbConnection.Open();
 
-			string sql = "CREATE TABLE Currencies (id INT, unit VARCHAR(255), conversion_factor DECIMAL)";
+			string sql = "CREATE TABLE Currencies (id INTEGER, unit VARCHAR(255), conversion_factor DECIMAL)";
 			SQLiteCommand command = new SQLiteCommand(sql, dbConnection);
 			command.ExecuteNonQuery();
 			

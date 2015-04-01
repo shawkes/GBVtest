@@ -17,7 +17,7 @@ namespace FarnsworthFinance {
 			}
 		}
 
-		public double ConvertToGBP(int localValue) {
+		public double ConvertToGBP(Int64 localValue) {
 			return localValue / _conversion_factor;
 		}
 
@@ -36,7 +36,7 @@ namespace FarnsworthFinance {
 			command.Parameters.Add(new SQLiteParameter("@id", id));
 			SQLiteDataReader reader = command.ExecuteReader();
 			while (reader.Read()) {
-				this._unit = (string)reader["unit"];
+				this._unit = Convert.ToString(reader["unit"]);
 				this._conversion_factor = Convert.ToDouble(reader["conversion_factor"]);
 			}
 			dbConnection.Close();

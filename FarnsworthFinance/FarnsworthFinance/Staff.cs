@@ -28,7 +28,7 @@ namespace FarnsworthFinance {
 
 			SQLiteDataReader reader = command.ExecuteReader();
 			while (reader.Read()) {
-				Employee employee = new Employee((int)reader["id"]);
+				Employee employee = new Employee(Convert.ToInt32(reader["id"]));
 				this._employees.Add(employee);
 			}
 			dbConnection.Close();
@@ -50,7 +50,7 @@ namespace FarnsworthFinance {
 			command.Parameters.Add(new SQLiteParameter("@query", String.Concat("%", query, "%")));
 			SQLiteDataReader reader = command.ExecuteReader();
 			while (reader.Read()) {
-				Employee employee = new Employee((int)reader["id"]);
+				Employee employee = new Employee(Convert.ToInt32(reader["id"]));
 				results.Add(employee);
 			}
 			dbConnection.Close();
