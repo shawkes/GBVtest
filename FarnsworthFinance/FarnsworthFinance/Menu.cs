@@ -12,6 +12,7 @@ namespace FarnsworthFinance {
 			Console.WriteLine();
 			Console.WriteLine("1 \tEmployee costs in GBP");
 			Console.WriteLine("2 \tSearch for employee");
+			Console.WriteLine("2 \tList Staff employees");
 			Console.WriteLine("Esc \tTo quit");
 		}
 

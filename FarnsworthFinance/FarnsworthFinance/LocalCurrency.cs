@@ -11,6 +11,12 @@ namespace FarnsworthFinance {
 		private string _unit;
 		private double _conversion_factor;
 
+		public string Unit {
+			get {
+				return _unit;
+			}
+		}
+
 		public double ConvertToGBP(int localValue) {
 			return localValue / _conversion_factor;
 		}
