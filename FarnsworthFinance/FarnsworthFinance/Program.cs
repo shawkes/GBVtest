@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SQLite;
 
 namespace FarnsworthFinance {
 	class Program {
@@ -28,7 +27,6 @@ namespace FarnsworthFinance {
 						break;
 
 					case "3":
-
 						EmployeeList();
 						break;
 				}
@@ -49,11 +47,13 @@ namespace FarnsworthFinance {
 			Console.WriteLine();
 			Console.WriteLine("Enter name:");
 			string employeeQuery = Console.ReadLine();
-			Staff staff = new Staff();
-			var searchResult = from employee in staff.List where employee.name.ToLower() == employeeQuery.ToLower() select employee;
+			var searchResult = Staff.FindEmployee( employeeQuery.ToLower());
 			if (searchResult.Count() == 1) {
 				Employee employee = searchResult.First();
+				Console.WriteLine("Found employee.");
 				Console.WriteLine("Name: {0}\tSallary: {1} {2}\tCost GBP: {3:C}", employee.name, employee.Salary, employee.SalaryUnit, employee.SalaryinGBP);
+			} else if (searchResult.Count() > 1) {
+				Console.WriteLine("More than one employee found! Please be more specific.");
 			} else {
 				Console.WriteLine("No employee found by that name!");
 			}
